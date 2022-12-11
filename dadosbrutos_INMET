@@ -1,0 +1,29 @@
+import os                     #pacote os
+import zipfile                #para arquivos zipados
+
+#preparando a pasta
+os.mkdir('dados_brutos')
+os.chdir('dados_brutos')
+
+#definindo o periodo dos dados
+#nesse caso, dados entre 2000 e 2022
+periodo = []
+for ano in range (2000, 2023):
+  periodo.append(ano)
+ 
+
+for i in periodo:
+  arquivo = [f'https://portal.inmet.gov.br/uploads/dadoshistoricos/{i}.zip']
+  for i,j in zip(periodo, arquivo):
+    download = os.system(f'wget -o {i}.zip {j}')
+    
+#extraindo os arquivos zipados e deletando os zips
+#para arquivos até 2018
+for i in periodo[1:-3]:
+  zipfile.ZipFile(f'/content/dados_brutos/{i}.zip').extractall('/content/dados_brutos')
+  os.remove(f'/content/dados_brutos/{i}.zip')
+
+#para arquivos a partir de 2019
+for i in periodo[-3:]:
+  zipfile.ZipFile(f'/content/dados_brutos/{i}.zip').extractall(f'/content/dados_brutos/{i}')
+  os.remove(f'/content/dados_brutos/{i}.zip')
