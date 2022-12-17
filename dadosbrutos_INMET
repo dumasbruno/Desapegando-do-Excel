@@ -57,7 +57,7 @@ for i in periodo[1:19]:
                             thousands = '.', decimal = ',', skiprows=[0,1,2,3,4,5,6,7], 
                             encoding='latin-1', index_col=None)
   else:
-    ds_PA = pd.concat([ds_PA, pd.read_csv(f'/content/dados_brutos/{i}/INMET_N_AM_A101_MANAUS_01-01-{i}_A_31-12-{i}.CSV', sep =';', 
+    ds_PA = pd.concat([ds_PA, pd.read_csv(f'/content/dados_brutos/{i}/INMET_S_RS_A801_PORTO ALEGRE_01-01-{i}_A_31-12-{i}.CSV', sep =';', 
                             thousands = '.', decimal = ',', skiprows=[0,1,2,3,4,5,6,7], 
                             encoding='latin-1', index_col=None)])
 ds_PA = ds_PA.drop(['PRESSÃO ATMOSFERICA MAX.NA HORA ANT. (AUT) (mB)', 'PRESSÃO ATMOSFERICA MIN. NA HORA ANT. (AUT) (mB)',
