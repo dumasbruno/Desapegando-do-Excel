@@ -1,5 +1,6 @@
 import os                     #pacote os
 import zipfile                #para arquivos zipados
+import pandas as pd
 
 #preparando a pasta
 os.mkdir('dados_brutos')
